@@ -15,6 +15,9 @@ void ofxBillboardBeginCylindrical(const ofVec3f& camPos, const ofVec3f& objPos)
 	// Save the current modelView matrix.
     ofPushMatrix();
     
+    // Translate the object to its position.
+    ofTranslate(objPos);
+    
     // The original lookAt vector for the object in world coordinates.
     ofVec3f lookAt(0, 0, 1);
         
@@ -72,10 +75,13 @@ void ofxBillboardBeginSpherical(const ofVec3f& camPos, const ofVec3f& objPos)
 }
 
 //--------------------------------------------------------------
-void ofxBillboardBeginCylindricalCheat()
+void ofxBillboardBeginCylindricalCheat(const ofVec3f& objPos)
 {
     // Save the current modelView matrix.
-	glPushMatrix();
+	ofPushMatrix();
+    
+    // Translate the object to its position.
+    ofTranslate(objPos);
     
 	// Get the current modelView matrix.
 	float modelView[16];
@@ -98,10 +104,13 @@ void ofxBillboardBeginCylindricalCheat()
 }
 
 //--------------------------------------------------------------
-void ofxBillboardBeginSphericalCheat()
+void ofxBillboardBeginSphericalCheat(const ofVec3f& objPos)
 {	
     // Save the current modelView matrix.
-	glPushMatrix();
+	ofPushMatrix();
+    
+    // Translate the object to its position.
+    ofTranslate(objPos);
     
 	// Get the current modelView matrix.
 	float modelView[16];

@@ -13,6 +13,6 @@
 
 void ofxBillboardBeginCylindrical(const ofVec3f& camPos, const ofVec3f& objPos);
 void ofxBillboardBeginSpherical(const ofVec3f& camPos, const ofVec3f& objPos);
-void ofxBillboardBeginCylindricalCheat();
-void ofxBillboardBeginSphericalCheat();
+void ofxBillboardBeginCylindricalCheat(const ofVec3f& objPos);
+void ofxBillboardBeginSphericalCheat(const ofVec3f& objPos);
 void ofxBillboardEnd();

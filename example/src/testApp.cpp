@@ -60,26 +60,24 @@ void testApp::drawObject(const ofVec3f& pos, const ofVec3f& axis)
         ofxBillboardBeginCylindrical(cam.getGlobalPosition(), pos);
     }
     else if (mode == BILLBOARD_CYLINDRICAL_CHEAT) {
-        ofxBillboardBeginCylindricalCheat();
+        ofxBillboardBeginCylindricalCheat(pos);
     }
     else if (mode == BILLBOARD_SPHERICAL) {
         ofxBillboardBeginSpherical(cam.getGlobalPosition(), pos);
     }
     else if (mode == BILLBOARD_SPHERICAL_CHEAT) {
-        ofxBillboardBeginSphericalCheat();
+        ofxBillboardBeginSphericalCheat(pos);
+    }
+    }
+    else {  // mode == BILLBOARD_NONE
+        ofPushMatrix();
+        ofTranslate(pos);
     }
     
-    ofPushMatrix();
-    ofTranslate(pos);
-    {
-        ofSetColor(ofColor::white);
-        eyeImage.draw(-50, -50, 100, 100);
-    }
-    ofPopMatrix();
+    ofSetColor(ofColor::white);
+    eyeImage.draw(-50, -50, 100, 100);
     
-    if (mode != BILLBOARD_NONE) {
-        ofxBillboardEnd();
-    }
+    ofxBillboardEnd();
 }
 
 //--------------------------------------------------------------
