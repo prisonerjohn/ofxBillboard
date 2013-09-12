@@ -26,18 +26,18 @@ void testApp::draw()
     cam.begin();
     {
         static float objectRadius = 200;
+        // Rotate around the z-axis.
         drawObject(ofVec3f(sinf(ofGetFrameNum() * 0.1) *  objectRadius,
                            cosf(ofGetFrameNum() * 0.1) *  objectRadius,
-                           objectRadius),
-                   ofVec3f(0, 0, 1));
+                           objectRadius));
+        // Rotate around the x-axis.
         drawObject(ofVec3f(sinf(ofGetFrameNum() * 0.1) *  objectRadius,
                            objectRadius,
-                           cosf(ofGetFrameNum() * 0.1) *  objectRadius),
-                   ofVec3f(1, 0, 0));
+                           cosf(ofGetFrameNum() * 0.1) *  objectRadius));
+        // Rotate around the y-axis.
         drawObject(ofVec3f(objectRadius,
                            sinf(ofGetFrameNum() * 0.1) *  objectRadius,
-                           cosf(ofGetFrameNum() * 0.1) *  objectRadius),
-                   ofVec3f(0, 1, 0));
+                           cosf(ofGetFrameNum() * 0.1) *  objectRadius));
         
         // draw axes
         static float axisLength = 200;
@@ -54,7 +54,7 @@ void testApp::draw()
 }
 
 //--------------------------------------------------------------
-void testApp::drawObject(const ofVec3f& pos, const ofVec3f& axis)
+void testApp::drawObject(const ofVec3f& pos)
 {
     if (mode == BILLBOARD_CYLINDRICAL) {
         ofxBillboardBeginCylindrical(cam.getGlobalPosition(), pos);

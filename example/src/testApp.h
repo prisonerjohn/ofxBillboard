@@ -32,7 +32,7 @@ class testApp : public ofBaseApp
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-        void drawObject(const ofVec3f& pos, const ofVec3f& axis);
+        void drawObject(const ofVec3f& pos);
     
     private:
         ofEasyCam cam;
