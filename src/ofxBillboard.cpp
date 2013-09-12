@@ -129,6 +129,28 @@ void ofxBillboardBeginSphericalCheat(const ofVec3f& objPos)
 }
 
 //--------------------------------------------------------------
+// Thanks James!
+void ofxBillboardBeginSphericalObvious(const ofVec3f& camPos, const ofVec3f& objPos)
+{
+    // Save the current modelView matrix.
+    ofPushMatrix();
+    
+    ofNode node;
+    node.setPosition(objPos);
+    node.lookAt(camPos);
+    
+    ofVec3f axis;
+    float angle;
+    node.getOrientationQuat().getRotate(angle, axis);
+    
+    // Translate the object to its position.
+    ofTranslate(objPos);
+    
+    // Perform the rotation.
+    ofRotate(angle, axis.x, axis.y, axis.z);
+}
+
+//--------------------------------------------------------------
 void ofxBillboardEnd()
 {
     // Restore the modelView matrix.

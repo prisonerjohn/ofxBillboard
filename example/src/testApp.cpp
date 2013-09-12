@@ -68,6 +68,8 @@ void testApp::drawObject(const ofVec3f& pos)
     else if (mode == BILLBOARD_SPHERICAL_CHEAT) {
         ofxBillboardBeginSphericalCheat(pos);
     }
+    else if (mode == BILLBOARD_SPHERICAL_OBVIOUS) {
+        ofxBillboardBeginSphericalObvious(cam.getGlobalPosition(), pos);
     }
     else {  // mode == BILLBOARD_NONE
         ofPushMatrix();
@@ -105,6 +107,11 @@ void testApp::keyPressed(int key)
             break;
             
         case '5':
+            mode = BILLBOARD_SPHERICAL_OBVIOUS;
+            modeName = "SPHERICAL OBVIOUS";
+            break;
+            
+        case '6':
             mode = BILLBOARD_NONE;
             modeName = "NONE";
             break;
